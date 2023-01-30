@@ -1,0 +1,47 @@
+Router(config)#interface Serial0/0/0
+Router(config-if)#ip address 192.120.8.230 255.255.255.252
+Router(config-if)#no shutdown
+Router(config-if)#
+%LINK-5-CHANGED: Interface Serial0/0/0, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/0/0, changed state to up
+
+
+Router(config)#interface FastEthernet0/0
+Router(config-if)#ip address 192.120.0.1 255.255.252.0
+Router(config-if)#no shutdown
+Router(config-if)#
+%LINK-5-CHANGED: Interface FastEthernet0/0, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+
+Router>en
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#router rip
+Router(config-router)#version 2
+Router(config-router)#no auto-
+Router(config-router)#no auto-summary 
+Router(config-router)#network 192.120.8.228
+Router(config-router)#network 192.120.0.0
+Router(config-router)#passive-
+Router(config-router)#passive-interface f0/0
+Router(config-router)#end
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Router#copy run start
+Destination filename [startup-config]? 
+Building configuration...
+[OK]
+Router#
+
+For switch-
+
+Router(config)#interface FastEthernet0/1
+Router(config-if)#ip address 172.8.0.1 255.255.255.248
+Router(config-if)#no shutdown
+Router(config-if)#
+%LINK-5-CHANGED: Interface FastEthernet0/1, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to up

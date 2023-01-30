@@ -1,0 +1,4 @@
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#ip route 0.0.0.0 0.0.0.0 s0/0/1
+Router(config)#
